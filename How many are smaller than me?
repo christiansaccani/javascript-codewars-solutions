@@ -1,0 +1,9 @@
+function smaller(arr) {
+  let counter = Array(arr.length).fill(0);
+
+  arr.forEach((value, i) => {
+    counter[i] = arr.slice(i + 1).filter(x => x < value).length;
+  });
+
+  return counter;
+}
