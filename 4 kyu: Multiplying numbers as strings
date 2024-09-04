@@ -1,0 +1,16 @@
+function multiply(a, b){
+  const aArr = a.split('').reverse();
+  const bArr = b.split('').reverse();
+  
+  const result = Array(aArr.length + bArr.length).fill(0);
+
+  for (let i = 0; i < aArr.length; i++) {
+    for (let j = 0; j < bArr.length; j++) {
+      const mul = (aArr[i] * bArr[j]) + result[i + j];
+      result[i + j] = mul % 10;
+      result[i + j + 1] += Math.floor(mul / 10);
+    }
+  }
+
+  return result.reverse().join('').replace(/^0+/, '') || '0';
+}
