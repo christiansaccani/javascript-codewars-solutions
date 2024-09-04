@@ -1,0 +1,10 @@
+function domainName(url){
+  let afterSlash = url.split('//')[1] || url;
+  
+  if (afterSlash.startsWith('www.')) {
+    afterSlash = afterSlash.substring(4); // Remove (www.)
+  }
+  
+  let result = afterSlash.split('.')[0] || '';
+  return result;
+}
