@@ -1,0 +1,3 @@
+function alphanumeric(string) {
+  return string !== "" && ![...string].some(char => char === ' ' || char === '_' || /[^a-zA-Z0-9]/.test(char));
+}
