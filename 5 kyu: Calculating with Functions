@@ -1,0 +1,35 @@
+function zero(operation) { return applyOperation(0, operation); }
+function one(operation) { return applyOperation(1, operation); }
+function two(operation) { return applyOperation(2, operation); }
+function three(operation) { return applyOperation(3, operation); }
+function four(operation) { return applyOperation(4, operation); }
+function five(operation) { return applyOperation(5, operation); }
+function six(operation) { return applyOperation(6, operation); }
+function seven(operation) { return applyOperation(7, operation); }
+function eight(operation) { return applyOperation(8, operation); }
+function nine(operation) { return applyOperation(9, operation); }
+
+function plus(a) {
+  return function(b) {
+    return b + a;
+  };
+}
+function minus(a) {
+  return function(b) {
+    return b - a;
+  };
+}
+function times(a) {
+  return function(b) {
+    return b * a;
+  };
+}
+function dividedBy(a) {
+  return function(b) {
+    return Math.floor(b / a);
+  };
+}
+
+function applyOperation(number, operation) {
+  return operation ? operation(number) : number;
+}
