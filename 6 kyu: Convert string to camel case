@@ -1,0 +1,6 @@
+function toCamelCase(str) {
+
+  return str.replace(/(?:[-_])(\w)/g, function(match, letter) {
+    return letter.toUpperCase();
+  });
+}
