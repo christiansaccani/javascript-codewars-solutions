@@ -1,0 +1,8 @@
+function ipsBetween(start, end){
+  const [a, b, c, d] = start.split('.');
+  const [w, x, y, z] = end.split('.');
+  
+  const total = z-d + (y-c)*256 + (x-b)*256**2 + (w-a)*256**3;
+
+  return total;
+}
