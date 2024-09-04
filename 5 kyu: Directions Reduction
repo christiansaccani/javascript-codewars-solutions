@@ -1,0 +1,20 @@
+function dirReduc(arr) {
+  const stack = [];
+  
+  for (let i = 0; i < arr.length; i++) {
+    const direction = arr[i];
+    
+    if (
+      (direction === "NORTH" && stack[stack.length - 1] === "SOUTH") ||
+      (direction === "SOUTH" && stack[stack.length - 1] === "NORTH") ||
+      (direction === "EAST" && stack[stack.length - 1] === "WEST") ||
+      (direction === "WEST" && stack[stack.length - 1] === "EAST")
+    ) {
+      stack.pop();
+    } else {
+      stack.push(direction);
+    }
+  }
+  
+  return stack;
+}
