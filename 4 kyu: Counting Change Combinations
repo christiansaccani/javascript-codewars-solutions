@@ -1,0 +1,20 @@
+function countChange(money, coins) {
+  let results = [];
+  
+  function backtrack(currentCombo, remainingMoney, start) {
+    if (remainingMoney === 0) {
+      results.push([...currentCombo].sort((a, b) => a - b));
+      return;
+    }
+    if (remainingMoney < 0) return;
+  
+    for (let i = start; i < coins.length; i++) {
+      currentCombo.push(coins[i]);
+      backtrack(currentCombo, remainingMoney - coins[i], i);
+      currentCombo.pop();
+    }
+  }
+  
+  backtrack([], money, 0);  
+  return Array.from(new Set(results.map(JSON.stringify)), JSON.parse).length;
+}
