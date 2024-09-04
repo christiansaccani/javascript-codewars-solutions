@@ -1,0 +1,12 @@
+function suffixSums(a) {
+  const n = a.length;
+  const b = new Array(n);
+  
+  b[n - 1] = a[n - 1];
+  
+  for (let i = n - 2; i >= 0; i--) {
+      b[i] = b[i + 1] + a[i];
+  }
+  
+  return b;
+}
