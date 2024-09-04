@@ -1,0 +1,9 @@
+function isValidWalk(walk) {
+
+  const counts = walk.reduce((acc, direction) => {
+    acc[direction] = (acc[direction] || 0) + 1;
+    return acc;
+  }, { n: 0, s: 0, e: 0, w: 0 });
+  
+  return walk.length === 10 && counts['n'] === counts['s'] && counts['e'] === counts['w'];
+}
