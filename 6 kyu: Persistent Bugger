@@ -1,0 +1,12 @@
+function persistence(num) {
+  let result = num;
+  let times = 0;
+
+  while (result >= 10) {
+    const digits = result.toString().split('');
+    result = digits.map(char => +char).reduce((product, current) => product * current, 1);
+    times++;
+  }
+  
+  return times;
+}
