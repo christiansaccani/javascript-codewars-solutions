@@ -1,0 +1,5 @@
+function solution(number) {
+  return Array.from({ length: number }, (_, i) => i)
+    .filter(i => i % 3 === 0 || i % 5 === 0)
+    .reduce((sum, i) => sum + i, 0);
+}
