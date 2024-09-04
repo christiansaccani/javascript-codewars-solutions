@@ -1,0 +1,30 @@
+function pyramid(stones) {
+  const countMap = {};
+  const final = [];
+
+  for (const stone of stones) {
+    countMap[stone] = (countMap[stone] || 0) + 1;
+  }
+
+  const findMaxWithCount = (minCount, removeCount) => {
+    const validElements = Object.entries(countMap)
+      .filter(([_, count]) => count >= minCount)
+      .map(([element]) => Number(element));
+    
+    if (validElements.length > 0) {
+      const maxElement = Math.max(...validElements);
+      final.push(...Array(removeCount).fill(maxElement));
+      delete countMap[maxElement];
+    }
+  };
+
+  findMaxWithCount(3, 3);
+  findMaxWithCount(2, 2);
+
+  const remainingMax = Math.max(...Object.keys(countMap).map(Number), -Infinity);
+  if (remainingMax !== -Infinity) {
+    final.push(remainingMax);
+  }
+
+  return final.length === 6 ? final[0] * 3 + final[3] * 2 + final[5] : null;
+}
