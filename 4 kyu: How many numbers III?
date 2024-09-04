@@ -1,0 +1,30 @@
+function findAll(n, k) {
+let result = [];
+
+function generateNumbers(current, sum, length) {
+  if (length === k) {
+    if (sum === n) {
+      result.push(parseInt(current));
+    }
+    return;
+  }
+  
+  let start = length === 0 ? 1 : parseInt(current.slice(-1));
+  
+  for (let i = start; i <= 9; i++) {
+    if (sum + i <= n) {
+      generateNumbers(current + i, sum + i, length + 1);
+    }
+  }
+}
+
+generateNumbers("", 0, 0);
+
+if (result.length === 0) {
+  return result;
+} else {
+  const minValue = Math.min(...result);
+  const maxValue = Math.max(...result);
+  return [result.length, minValue.toString(), maxValue.toString()];
+}
+}
