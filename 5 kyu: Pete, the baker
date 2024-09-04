@@ -1,0 +1,7 @@
+function cakes(recipe, available) {
+  return Math.min(
+    ...Object.entries(recipe).map(([ingredient, quantity]) =>
+      Math.floor((available[ingredient] || 0) / quantity)
+    )
+  );
+}
